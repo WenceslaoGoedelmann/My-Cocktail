@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: rgb(21, 32, 43);
+  height: 100%;
+  color: white;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px 5%;
+}
+
+.title-container {
+  display: flex;
+}
+
+.title {
+  height: 350px;
+  width: 600px;
+}
+
+.random-card-container {
+  margin: 10px 0px;
+  width: 200px;
+  height: 280px;
+  border-radius: 10px;
+  background: rgb(96, 77, 116);
+  box-shadow: 10px 5px 5px black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.cocktails-container {
+  padding: 30px 0px;
+  display: flex;
+
+  justify-content: space-around;
+  align-items: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+}
+
+.card-container {
+  width: 200px;
+  height: 280px;
+  border-radius: 10px;
+  background: rgb(38, 38, 92);
+  box-shadow: 10px 5px 5px black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.card-img {
+  width: 150px;
+  height: 180px;
+  border-radius: 10px;
+}
+.card-title {
+  text-align: center;
+}
+.btn-card {
+  width: 50px;
+  height: 20px;
+  background-color: rgb(45, 45, 78);
+  color: white;
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  outline: none;
+  box-shadow: 0px 5px 5px 0px black;
+  border: none;
+  cursor: pointer;
+}
+
+.search-input {
+  margin: 20px 0px 0px 0px;
+  display: flex;
+  width: 400px;
+  height: 50px;
+}
+
+form button {
+  background-color: white;
+  outline: none;
+  border: none;
+  color: black;
+  padding: 8px 10px;
+  margin-right: 0px;
+  border-radius: 10px 0 0 10px;
+}
+form input {
+  background-color: white;
+  outline: none;
+  border: none;
+  padding: 8px 5px;
+  color: black;
+  border-radius: 0 10px 10px 0;
+  width: 100%;
+  max-width: 360px;
+  margin-left: 0px;
+}
+
+input::placeholder {
+  color: black;
+}
+
+.letter {
+  border-radius: 5px;
+  background-color: rgb(114, 112, 228);
+  border: none;
+  padding: 5px;
+  color: white;
+}
+.letter--active {
+  background-color: rgb(100, 100, 100);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-cocktail-container {
+  position: fixed;
+  top: 40px;
+  right: 0;
+  padding: 50px 30px;
+  background: rgb(45, 45, 88);
+  width: 450px;
+  height: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  height: calc(100vh - 65px);
+  overflow-y: scroll;
+  z-index: 2;
+
+  transform: translate(200%);
+  transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.info-cocktail-container h4 {
+  text-align: left;
+}
+.open-cocktail {
+  transform: translate(-100%);
+  transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+}
+
+/*OCULTAR BARRA DE SCROLL DEL CARRITO*/
+.info-cocktail-container::-webkit-scrollbar {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+
+  height: 100vh;
+  width: 100%;
+  z-index: 1; /*Para que quede por encima del resto de las cosas*/
+
+  /*Efecto de Glassmorphismo*/
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: none;
+}
+
+.show-overlay {
+  display: block;
+}

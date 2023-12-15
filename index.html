@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>My Cocktail</title>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <main>
+      <div class="title-container">
+        <img
+          src="how do I make my cocktail.png"
+          alt="how do I make my cocktail?"
+          class="title"
+        />
+      </div>
+      <h2>Recommended cocktail for today:</h2>
+      <section class="random-cocktail-container">
+        <!-- Aca ira el cocktail random -->
+      </section>
+      <div class="search">
+        <form id="form">
+          <div class="search-input" data-search="ByName">
+            <button type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <input
+              type="text"
+              name="By Name"
+              autocomplete="off"
+              placeholder="Search Cocktail"
+              class="search-cocktail-input"
+              id="ByName"
+            />
+          </div>
+        </form>
+      </div>
+
+      <div class="container">
+        <section class="cocktails-container">
+          <!-- Aca iran los cocktails -->
+        </section>
+        <div class="alphabet-btns" id="ByFirstLetter">
+          <button type="button" class="letter letter--active" data-letter="A">
+            A
+          </button>
+          <button type="button" class="letter" data-letter="B">B</button>
+          <button type="button" class="letter" data-letter="C">C</button>
+          <button type="button" class="letter" data-letter="D">D</button>
+          <button type="button" class="letter" data-letter="E">E</button>
+          <button type="button" class="letter" data-letter="F">F</button>
+          <button type="button" class="letter" data-letter="G">G</button>
+          <button type="button" class="letter" data-letter="H">H</button>
+          <button type="button" class="letter" data-letter="I">I</button>
+          <button type="button" class="letter" data-letter="J">J</button>
+          <button type="button" class="letter" data-letter="K">K</button>
+          <button type="button" class="letter" data-letter="L">L</button>
+          <button type="button" class="letter" data-letter="M">M</button>
+          <button type="button" class="letter" data-letter="N">N</button>
+          <button type="button" class="letter" data-letter="O">O</button>
+          <button type="button" class="letter" data-letter="P">P</button>
+          <button type="button" class="letter" data-letter="Q">Q</button>
+          <button type="button" class="letter" data-letter="R">R</button>
+          <button type="button" class="letter" data-letter="S">S</button>
+          <button type="button" class="letter" data-letter="T">T</button>
+          <button type="button" class="letter" data-letter="U">U</button>
+          <button type="button" class="letter" data-letter="V">V</button>
+          <button type="button" class="letter" data-letter="W">W</button>
+          <button type="button" class="letter" data-letter="X">X</button>
+          <button type="button" class="letter" data-letter="Y">Y</button>
+          <button type="button" class="letter" data-letter="Z">Z</button>
+        </div>
+        <section class="info-cocktail-container">
+          <!-- Aca ira el cocktail selecionado  -->
+        </section>
+      </div>
+    </main>
+    <script src="request.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
