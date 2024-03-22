@@ -6,19 +6,14 @@ const form = document.getElementById("form");
 const cocktailInputByName = document.getElementById("ByName");
 const listLetters = document.querySelectorAll(".letter");
 const byFirstLetter = document.querySelector("#ByFirstLetter");
-//const cocktailInputByIngredient = document.getElementById("ByIngredient");
-//const filterButtons = document.querySelectorAll(".btn");
-//const filterContainer = document.querySelector(".filter-container");
-//const filterSearch = document.querySelectorAll(".search");
-//const searchInput = document.querySelectorAll(".search-input");
-//const byFirstLetter = document.querySelector("#ByFirstLetter");
+
 
 const infoCocktailContainer = document.querySelector(".info-cocktail-container");
 const overlay = document.querySelector(".overlay");
 
 let selecteSearch = "";
 
-const getRandomCocktailCardHtml = ({strDrink, strDrinkThumb, idDrink}) => {  //funcion que nos crea el html de la card
+const getRandomCocktailCardHtml = ({strDrink, strDrinkThumb, idDrink}) => {  
 return `
     <div class="random-card-container">
     <h3 class="card-title">${strDrink}</h3>
@@ -45,7 +40,7 @@ const getRandomCocktail = async () => {
   renderCocktails(cocktailList.drinks);
 };
 
-const getCocktailCardHtml = ({strDrink, strDrinkThumb, idDrink}) => {//funcion que nos crea el html de la card
+const getCocktailCardHtml = ({strDrink, strDrinkThumb, idDrink}) => {
   return `
     <div class="card-container">
     <img src="${strDrinkThumb}" alt="${strDrink}" class="card-img">
@@ -67,27 +62,23 @@ const renderCocktails = (cocktail) => {
 
 const getCocktail = async (e) => {
   e.preventDefault();
-    const searchedCocktail = cocktailInputByName.value.trim(); //guando el cocktail ingresada en el input y le quito los espacios adelante y atras si los tuviese
+    const searchedCocktail = cocktailInputByName.value.trim(); 
     if (searchedCocktail === "") {
-      //creo un alert por si submitean con el input vacio
       alert("Por favor ingrese un cocktail!");
       return;
     }
-    // llamar a la API
     const cocktail = await searchCocktailByName(searchedCocktail);
-    // renderizar las cards
     renderCocktails(cocktail.drinks);
 }; 
 
 const getCocktailByFirstLetter = async (e) => {
   if (
-    // si no contiene la clase "btn" osea estas tocando entre medio de los botones o estas tocando el boton que ya tiene la clase active, retorna
     !e.target.classList.contains("letter") ||
     e.target.classList.contains("letter--active")
   )
     return;
-  const selecteLetter = e.target.dataset.letter; //guardo el dataset que tiene el boton pulsado (ver el HTML de los botones)
-  const letters = [...listLetters]; //como listLetters me trae una NodeList, con el spread operator la convierto en un array donde cada elemento va a ser un boton
+  const selecteLetter = e.target.dataset.letter; 
+  const letters = [...listLetters]; 
   letters.forEach((btn) => {
     if (btn.dataset.letter !== selecteLetter) {
       btn.classList.remove("letter--active");
@@ -95,9 +86,7 @@ const getCocktailByFirstLetter = async (e) => {
       btn.classList.add("letter--active");
     }
   });
-   // llamar a la API
   const cocktail = await listCocktailsByFirstLetter(selecteLetter);
-  // renderizar las cards
   renderCocktails(cocktail.drinks);
 };
 
@@ -199,6 +188,7 @@ const getCocktailInfoCardHtml = ({
   }
 
   return `
+  <div class="card-info-cocktail-container">
   <h3>${strDrink} </h3>
   <img src="${strDrinkThumb}" alt="${strDrink}" class="card-img">
   <h4>Instructions:</h4>
@@ -221,7 +211,7 @@ const getCocktailInfoCardHtml = ({
     <li>${strIngredient14}  ${strMeasure14}</li>
     <li>${strIngredient15}  ${strMeasure15}</li>
   </ul>
-
+</div>
   `;
 };
 
@@ -231,9 +221,8 @@ const renderCocktailInfo = (cocktail) => {
 };
 
 const cocktailInfo = async (e) => {
-  if (!e.target.classList.contains("btn-card")) return; //si hago click en cualquier parte de la card que NO contenga la clase "btn-card", sale
-  // si contiente la clase "btn-card":
-  const id = e.target.dataset.id //guardo el id de esa card (se lo habiamos asignado en el reder de la card)
+  if (!e.target.classList.contains("btn-card")) return; 
+  const id = e.target.dataset.id 
   const cocktail = await listCocktailsByID(id);
   renderCocktailInfo (cocktail.drinks)
   infoCocktailContainer.classList.toggle("open-cocktail");
@@ -252,7 +241,7 @@ const closeOnScroll = () => {
 };
 
 const init = () => {
-  window.addEventListener("DOMContentLoaded", getRandomCocktail); //cuando carga la pagina llamamos a obtener un cocktail random y a los cocktail que comienzan con "a"
+  window.addEventListener("DOMContentLoaded", getRandomCocktail); 
   form.addEventListener("submit", getCocktail);
   byFirstLetter.addEventListener("click", getCocktailByFirstLetter);
   cocktailsContainer.addEventListener("click", cocktailInfo);
